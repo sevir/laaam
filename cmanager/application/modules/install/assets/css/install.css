@@ -1,0 +1,109 @@
+body{
+	padding-top: 10px;
+}
+
+.navbar{
+	img{
+		margin-top: -3px;
+	}
+	.navbar-inner{
+		height: 40px;
+	}
+	
+	.brand span{
+		font-size: 10px;
+	}
+
+	.brand img{
+		float: none !important;
+	}
+}
+
+a:link{
+	background-color: transparent !important;
+	color: #333 !important; 
+}
+.mainmenu a:hover{
+	color: #fff !important;
+}
+
+.footer{
+	color: #777;
+	text-align: right;
+	font-size: 10px;
+	border-top: 1px #ccc solid;
+	margin-top: 40px;
+}
+
+.container{
+	min-height: 200px;
+}
+
+.center{
+	text-align: center;
+}
+
+.resume{
+	margin-top:40px;
+}
+
+.features{
+	p{
+		font-size: 12px;
+		color: #333;
+	}
+}
+
+.mainmenu{
+	display: block;
+	position: inherit;
+}
+
+.mainmenu .menuactive{
+	background-color: #0081C2;
+	background-image: -moz-linear-gradient(top, #CD9D6B, #E1B88C);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#CD9D6B), to(#E1B88C));
+	background-image: -webkit-linear-gradient(top, #CD9D6B, #E1B88C);
+	background-image: -o-linear-gradient(top, #CD9D6B, #E1B88C);
+	background-image: linear-gradient(to bottom, #CD9D6B, #E1B88C);
+}
+
+.inner-content{
+	background: #fff;
+	-webkit-box-shadow: 0px 0px 2px 0px #cdcdcd;
+	box-shadow: 0px 0px 2px 0px #cdcdcd;
+	border: 1px #ddd solid;
+	padding: 20px;
+	border-radius: 3px;
+}
+
+.overflow{
+	overflow: auto;
+}
+
+p.small{
+	font-size: 10px;
+}
+
+.table-setup{
+	td{
+		vertical-align: middle;
+	}
+	p{
+		margin-bottom: 0;
+	}
+}
+
+.center{
+	text-align: center !important;
+}
+
+textarea{
+	width: 100%;
+	height: 300px;
+}
+
+/* Database css */
+.profile{
+	border-bottom: 1px #ccc dashed;
+}

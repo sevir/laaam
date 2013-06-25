@@ -1,0 +1,59 @@
+{% extends "layout/laaam_layout.twig" %}
+
+{% block content %}{% spaceless %}
+	<h4>Please configure first database parameters</h4>
+    <form action="{{ install_path }}/install_save" class="form-horizontal" method="post">
+    	<div class="control-group">
+		    <label class="control-label" for="host">Host</label>
+		    <div class="controls">
+		      <input type="text" id="host" name="host" placeholder="host" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="database">Database name</label>
+		    <div class="controls">
+		      <input type="text" id="database" name="database" placeholder="database" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="username">Username</label>
+		    <div class="controls">
+		      <input type="text" id="username" name="username" placeholder="username" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="password">Password</label>
+		    <div class="controls">
+		      <input type="password" id="password" name="password" placeholder="password" />
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="charset">Database charset</label>
+		    <div class="controls">
+		      <input type="text" id="charset" name="charset" placeholder="charset" value="utf8" disabled="disabled" />
+		      <label><input type="checkbox" class="enable_change" /> Enable to change this</label>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="collate">Database collate</label>
+		    <div class="controls">
+		      <input type="text" id="collate" name="collate" placeholder="collate" value="utf8_general_ci" disabled="disabled" />
+		      <label><input type="checkbox" class="enable_change" /> Enable to change this</label>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label" for="prefix">Database table prefix</label>
+		    <div class="controls">
+		      <input type="text" id="prefix" name="prefix" placeholder="gp_" value="gp_" disabled="disabled" />
+		      <label><input type="checkbox" class="enable_change" /> Enable to change this</label>
+		    </div>
+		  </div>
+		  <div class="control-group">
+		    <label class="control-label"></label>
+		    <div class="controls">
+		      <button type="submit" class="btn">Save &amp; continue</button>
+		    </div>
+		  </div>
+		  
+    </form>
+{% endspaceless %}{% endblock %}
