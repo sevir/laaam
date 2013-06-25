@@ -6,13 +6,117 @@ class Laaam extends TWIG_Controller {
 	function __construct()
     {
         parent::__construct();
-
-		
+        require_once '../../gp-load.php';		
     }
 
 	public function index()
 	{
-		
+		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
+			$this->display('admin_tools');
+		}else{			
+			redirect('http://'.$_SERVER['HTTP_HOST']);
+		}
+	}
+
+	public function get_user(){
+		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
+			$this->load->database();
+			$this->load->model('gp_user_model');
+			$this->load->spark('ajax/1.0.1');
+			$this->load->library('ajax');
+
+			$users = $this->gp_user_model->find_all();
+			$this->ajax->response(array(
+				'Result' => 'OK',
+				'Records' => $users
+			));
+		}
+	}
+
+	public function delete_user(){
+		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
+			$this->load->database();
+			$this->load->model('gp_user_model');
+			$this->load->spark('ajax/1.0.1');
+			$this->load->library('ajax');
+
+			$users = $this->gp_user_model->delete($this->input->post('ID'));
+			$this->ajax->response(array(
+				'Result' => 'OK'
+			));
+		}
+	}
+
+	public function update_user(){
+		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
+			$this->load->database();
+			$this->load->model('gp_user_model');
+			$this->load->model('gp_permission_model');
+			$this->load->spark('ajax/1.0.1');
+			$this->load->library('ajax');
+
+			$user_to_make_admin = GP::$user->by_login( $this->input->post('user_login') );
+			if ($this->input->post('can_admin')){				
+				GP::$permission->create( array( 'user_id' => $user_to_make_admin->id, 'action' => 'admin' ) );
+			}else{
+				$this->gp_permission_model->delete_by_user_id($user_to_make_admin->id);
+			}
+
+			$users = $this->gp_user_model->update_by_user_email($this->input->post('user_email'), array(
+				'display_name'=> $this->input->post('display_name'),
+				'user_email' => $this->input->post('user_email'),
+				'user_login' => $this->input->post('user_login'),
+				'user_nicename' => $this->input->post('user_nicename'),
+				'user_pass' => (strpos($this->input->post('user_pass') , '$') !== 0)?WP_Pass::hash_password( $this->input->post('user_pass') ):$this->input->post('user_pass') 
+				));
+			$this->ajax->response(array(
+				'Result' => 'OK',
+				'Records' => GP::$user->by_login( $this->input->post('user_login') )
+			));
+		}
+	}
+
+	public function create_user(){
+		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
+			$this->load->spark('ajax/1.0.1');
+			$this->load->library('ajax');
+
+			$user_by_login = GP::$user->by_login( $this->input->post('user_login') );
+			if($user_by_login){
+				$this->ajax->response(array(
+					'Result'=>'ERROR',
+					'Message'=>'User login exists!'
+				));
+			}
+
+			$user_by_email = GP::$user->by_email( $this->input->post('user_email') );
+			if($user_by_email){
+				$this->ajax->response(array(
+					'Result'=>'ERROR',
+					'Message'=>'User email exists!'
+				));
+			}else{
+				$args = array();
+				$args['user_login'] = $this->input->post('user_login');
+				$args['user_nicename'] = $this->input->post('user_nicename');
+				$args['display_name'] = $this->input->post('display_name');
+				$args['user_email'] = $this->input->post('user_email');
+				$args['user_pass'] = $this->input->post('user_pass');
+				$user = GP::$user->create( $args ) ;
+			}
+			if ($user){
+				$response = array(
+					'Result' => 'OK',
+					'Record' => $user
+				);
+			}else{
+				$response = array(
+					'Result' => 'ERROR',
+					'Message' => 'Error creating user'
+				);
+			}
+			$this->ajax->response($response);
+		}
 	}
 
 	public function login(){
@@ -39,8 +143,6 @@ class Laaam extends TWIG_Controller {
 			);
 
 			if($server_response){
-				require_once '../../gp-load.php';
-
 				$user_by_email = GP::$user->by_email( $username );
 				$gp_user = str_replace('@digio.es', '', $username);
 				if (!$user_by_email){

@@ -1,0 +1,15 @@
+{% extends "layout/laaam_layout.twig" %}
+
+{% block sectionCSS %}{% spaceless %}
+<link href="/cmanager/public/assets/themes/redmond/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css" />
+<link href="/cmanager/public/assets/js/libs/jtable/themes/lightcolor/gray/jtable.css" rel="stylesheet" type="text/css" />
+{% endspaceless %}{% endblock %}
+
+{% block sectionJS %}{% spaceless %}
+{{ assets_js_group('jtablejs', array( 'libs/jquery-ui-1.8.16.custom.min.js', 'libs/jtable/jquery.jtable.min.js' )) }}
+{{ assets_js_group('backendjs', array(module_assets['js']~'laaam_backend.js')) }}
+{% endspaceless %}{% endblock %}
+
+{% block content %}{% spaceless %}
+<div id="userTableContainer" style="width: 100%;"></div>
+{% endspaceless %}{% endblock %}

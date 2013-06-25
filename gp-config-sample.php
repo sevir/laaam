@@ -2,7 +2,7 @@
 // ** MySQL settings - You can get this info from your web host ** //
 
 //fix for creamture db management
-define('BASEPATH','cmanager/');
+if ( ! defined('BASEPATH')) define('BASEPATH','cmanager/');
 include('cmanager/application/config/database.php');
 
 /** The name of the database for bbPress */
