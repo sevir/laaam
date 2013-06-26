@@ -1,0 +1,174 @@
+# English translations for 1 package.
+# Copyright (C) 2013 THE 1'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the 1 package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-06-26 10:34+0200\n"
+"PO-Revision-Date: 2013-06-26 10:34+0200\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: en_US\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: application/modules/creamator/commands/migrations_commands.php:6
+msgid "Create an empty migration file"
+msgstr "Create an empty migration file"
+
+#: application/modules/creamator/commands/migrations_commands.php:7
+msgid "creamator createMigration <desc> <environment>"
+msgstr "creamator createMigration <desc> <environment>"
+
+#: application/modules/creamator/commands/migrations_commands.php:8
+msgid "file description"
+msgstr "file description"
+
+#: application/modules/creamator/commands/migrations_commands.php:8
+msgid "optional, the environment"
+msgstr "optional, the environment"
+
+#: application/modules/creamator/commands/migrations_commands.php:12
+msgid "load all available migrations"
+msgstr "load all available migrations"
+
+#: application/modules/creamator/commands/migrations_commands.php:13
+msgid "creamator loadMigrations"
+msgstr "creamator loadMigrations"
+
+#: application/modules/creamator/commands/migrations_commands.php:30
+msgid "Error creating migration file, please check folder permissions"
+msgstr "Error creating migration file, please check folder permissions"
+
+#: application/modules/creamator/commands/migrations_commands.php:32
+msgid "Migration file "
+msgstr "Migration file "
+
+#: application/modules/creamator/commands/migrations_commands.php:48
+msgid "Migration file loaded: "
+msgstr "Migration file loaded: "
+
+#: application/modules/creamator/commands/migrations_commands.php:51
+msgid "No available migrations..."
+msgstr "No available migrations..."
+
+#: application/modules/creamator/commands/migrations_commands.php:52
+msgid "Migrations finished"
+msgstr "Migrations finished"
+
+#: application/modules/install/controllers/install.php:17
+msgid "Access forbiden"
+msgstr "Access forbiden"
+
+#: application/modules/install/controllers/install.php:115
+msgid "File .htaccess created successfully, trying to change config.php"
+msgstr "File .htaccess created successfully, trying to change config.php"
+
+#: application/modules/install/controllers/install.php:121
+msgid ""
+"<br />Config file changed removed \"index.php\" in $config[\"index_page\"] "
+msgstr ""
+"<br />Config file changed removed \"index.php\" in $config[\"index_page\"] "
+
+#: application/modules/install/controllers/install.php:124
+msgid ""
+"<br />Error changing config file, please remove \"index.php\" in $config"
+"[\"index_page\"] in the config.php file manually"
+msgstr ""
+"<br />Error changing config file, please remove \"index.php\" in $config"
+"[\"index_page\"] in the config.php file manually"
+
+#: application/modules/install/controllers/install.php:128
+msgid ""
+"Error creating .htaccess please check the file and the public folder "
+"permissions"
+msgstr ""
+"Error creating .htaccess please check the file and the public folder "
+"permissions"
+
+#: application/modules/install/controllers/install.php:145
+msgid "File .htaccess removed successfully, trying to change config.php"
+msgstr "File .htaccess removed successfully, trying to change config.php"
+
+#: application/modules/install/controllers/install.php:151
+msgid "<br />Config file changed changed in $config[\"index_page\"] "
+msgstr "<br />Config file changed changed in $config[\"index_page\"] "
+
+#: application/modules/install/controllers/install.php:154
+msgid "<br />Error changing config file"
+msgstr "<br />Error changing config file"
+
+#: application/modules/install/controllers/install.php:158
+msgid ""
+"Error removing .htaccess please check de file and the public folder "
+"permissions"
+msgstr ""
+"Error removing .htaccess please check de file and the public folder "
+"permissions"
+
+#: application/modules/laaam/controllers/laaam.php:171
+msgid "Invalid authentication"
+msgstr "Invalid authentication"
+
+#: application/modules/laaam/controllers/laaam.php:177
+msgid "Please check username or password"
+msgstr "Please check username or password"
+
+#: application/modules/migrations/libraries/migration_library.php:75
+msgid "ERROR Last Query: "
+msgstr "ERROR Last Query: "
+
+#: application/modules/migrations/libraries/migration_library.php:96
+msgid ""
+"ERROR! MIGRATION FAILED! You now have a possible inconsistent database, "
+"because it did pass the initial test, but failed when the migration was "
+"actually run. You need to find out what statements of the migration did "
+"work, and bring it back to the state of the previous migration. For the "
+"record, the migration file is: "
+msgstr ""
+"ERROR! MIGRATION FAILED! You now have a possible inconsistent database, "
+"because it did pass the initial test, but failed when the migration was "
+"actually run. You need to find out what statements of the migration did "
+"work, and bring it back to the state of the previous migration. For the "
+"record, the migration file is: "
+
+#: i18n/twig_tmp/d9/e8/2aa431c70c7cde954a3ca8096a87.php:40
+msgid ""
+"The modern framework for building big web applications, built-in over the "
+"latest practices and standards HTML5, CSS3 and JavaScript patterns"
+msgstr ""
+"The modern framework for building big web applications, built-in over the "
+"latest practices and standards HTML5, CSS3 and JavaScript patterns"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:82
+msgid "Features"
+msgstr "Features"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:91
+msgid "Setup"
+msgstr "Setup"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:100
+msgid "Database"
+msgstr "Database"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:109
+msgid "Documentation"
+msgstr "Documentation"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:118
+msgid "Licenses"
+msgstr "Licenses"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:127
+msgid "Agreements"
+msgstr "Agreements"
+
+#: i18n/twig_tmp/ea/52/42f0a6f42481090483f999d3a142.php:142
+msgid "made with love in DIGIO Soluciones Digitales"
+msgstr "made with love in DIGIO Soluciones Digitales"
