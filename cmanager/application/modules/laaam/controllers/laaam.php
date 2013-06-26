@@ -5,12 +5,12 @@ class Laaam extends TWIG_Controller {
 
 	function __construct()
     {
-        parent::__construct();
-        require_once '../../gp-load.php';		
+        parent::__construct();        		
     }
 
 	public function index()
 	{
+		require_once '../../gp-load.php';
 		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
 			$this->display('admin_tools');
 		}else{			
@@ -19,6 +19,7 @@ class Laaam extends TWIG_Controller {
 	}
 
 	public function get_user(){
+		require_once '../../gp-load.php';
 		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
 			$this->load->database();
 			$this->load->model('gp_user_model');
@@ -34,6 +35,7 @@ class Laaam extends TWIG_Controller {
 	}
 
 	public function delete_user(){
+		require_once '../../gp-load.php';
 		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
 			$this->load->database();
 			$this->load->model('gp_user_model');
@@ -48,6 +50,7 @@ class Laaam extends TWIG_Controller {
 	}
 
 	public function update_user(){
+		require_once '../../gp-load.php';
 		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
 			$this->load->database();
 			$this->load->model('gp_user_model');
@@ -77,6 +80,7 @@ class Laaam extends TWIG_Controller {
 	}
 
 	public function create_user(){
+		require_once '../../gp-load.php';
 		if( GP::$user->logged_in() && GP::$user->current()->can( 'write', 'project' )){
 			$this->load->spark('ajax/1.0.1');
 			$this->load->library('ajax');
@@ -143,6 +147,7 @@ class Laaam extends TWIG_Controller {
 			);
 
 			if($server_response){
+				require_once '../../gp-load.php';
 				$user_by_email = GP::$user->by_email( $username );
 				$gp_user = str_replace('@digio.es', '', $username);
 				if (!$user_by_email){
