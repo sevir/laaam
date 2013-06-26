@@ -201,13 +201,13 @@ class Laaam extends TWIG_Controller {
 
 			$c = read_file('../application/config/database.php');
 
-			$c = str_replace('$db[\'default\'][\'hostname\'] = \'localhost\'', '$db[\'default\'][\'hostname\'] = \''.$host.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'username\'] = \'\'', '$db[\'default\'][\'username\'] = \''.$username.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'password\'] = \'\'', '$db[\'default\'][\'password\'] = \''.$password.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'database\'] = \'\'', '$db[\'default\'][\'database\'] = \''.$database.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'char_set\'] = \'utf8\'', '$db[\'default\'][\'char_set\'] = \''.$charset.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'dbcollat\'] = \'utf8_general_ci\'', '$db[\'default\'][\'dbcollat\'] = \''.$collate.'\'', $c);
-			$c = str_replace('$db[\'default\'][\'dbprefix\'] = \'\'', '$db[\'default\'][\'dbprefix\'] = \''.$prefix.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'hostname\'\]) = \'([^\']*)\'/', '$1 = \''.$host.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'username\'\]) = \'([^\']*)\'/', '$1 = \''.$username.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'password\'\]) = \'([^\']*)\'/', '$1 = \''.$password.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'database\'\]) = \'([^\']*)\'/', '$1 = \''.$database.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'char_set\'\]) = \'([^\']*)\'/', '$1 = \''.$charset.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'dbcollat\'\]) = \'([^\']*)\'/', '$1 = \''.$collate.'\'', $c);
+			$c = preg_replace('/(\$db\[\'default\'\]\[\'dbprefix\'\]) = \'([^\']*)\'/', '$1 = \''.$prefix.'\'', $c);
 			if(write_file('../application/config/database.php' ,$c)){
 				$c = read_file('../../gp-config-sample.php');
 
